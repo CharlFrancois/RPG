@@ -1,9 +1,5 @@
 <template>
-  <div id="app">
-    <audio src="/../assests/musique-du-gouffre-de-helm.mp3" autoplay>
-      <p>If you are reading this, it is because your browser does not support the audio element.     </p>
-    </audio>
-   
+  <div id="app">   
     <onboarding />
   </div>
 </template>

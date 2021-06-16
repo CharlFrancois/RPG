@@ -46,6 +46,10 @@ export default {
       return this.currentStep !== 3;
     },
   },
+  created () {
+    var audio = new Audio(require('../assets/musique-du-gouffre-de-helm.mp3'));
+    audio.play()
+  },
   methods: {
     storeCharacter(character) {
       console.log(character);
