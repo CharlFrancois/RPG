@@ -6,7 +6,7 @@
       class="button button-before"
       @click="currentStep--"
     />
-    <select-character v-if="currentStep === 0" />
+    <select-character v-if="currentStep === 0" @selected="storeCharacter" />
     <select-gender v-if="currentStep === 1" />
     <select-armor v-if="currentStep === 2" />
     <select-skills v-if="currentStep === 3" />
@@ -46,6 +46,11 @@ export default {
       return this.currentStep !== 3;
     },
   },
+  methods: {
+    storeCharacter(character) {
+      console.log(character);
+    },
+  },
 };
 </script>
 
@@ -60,8 +65,9 @@ export default {
   justify-content: space-around;
   place-items: center;
   .button {
-      color: white;
+    color: white;
     height: 10rem;
+    cursor: pointer;
     &-next {
       position: fixed;
       bottom: 50%;
