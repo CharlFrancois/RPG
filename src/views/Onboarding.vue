@@ -16,6 +16,8 @@
       class="button button-next"
       @click="currentStep++"
     />
+    <span class="music" v-if="!playAudio" @click="playMusique">Ecouter la musique</span>
+    <span class="music" v-if="playAudio" @click="stopMusique">Arrêter la musique</span>
   </div>
 </template>
 
@@ -36,6 +38,8 @@ export default {
   data() {
     return {
       currentStep: 0,
+      playAudio: false,
+      audio: new Audio(require("../assets/musique-du-gouffre-de-helm.mp3"))
     };
   },
   computed: {
@@ -46,14 +50,20 @@ export default {
       return this.currentStep !== 3;
     },
   },
-  created () {
-    var audio = new Audio(require('../assets/musique-du-gouffre-de-helm.mp3'));
-    audio.play()
-  },
+
   methods: {
     storeCharacter(character) {
       console.log(character);
     },
+    playMusique() {
+      this.playAudio = true
+      console.log(this.playAudio);
+      this.audio.play();
+    },
+    stopMusique() {
+      this.playAudio = false
+      this.audio.pause();
+    }
   },
 };
 </script>
@@ -83,6 +93,14 @@ export default {
       bottom: 50%;
       left: 0;
     }
+  }
+  .music {
+    color: white;
+    font-weight: bold;
+    position: fixed;
+    cursor: pointer;
+    bottom: 10px;
+    right: 10px;
   }
 }
 </style>

@@ -1,18 +1,18 @@
 <template>
-  <div id="app">   
+  <div id="app">
     <onboarding />
   </div>
 </template>
 
 <script>
-import Onboarding from './views/Onboarding.vue'
+import Onboarding from "./views/Onboarding.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Onboarding
+    Onboarding,
   }
-}
+};
 </script>
 
 <style>
